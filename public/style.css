@@ -85,10 +85,15 @@ th {
   font-weight: 700;
   color: blue;
 }
+
+.chat span.my-user {
+  font-weight: 700;
+  color: red;
+}
 .chat span.timestamp {
   color: brown;
 }
-.chat span.user {
+.chat span.user-msg {
   color: green;
   font-style: italic;
 }

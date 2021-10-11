@@ -20,6 +20,7 @@ const submitProduct = (e) => {
 const sendMsg = (e) => {
   e.preventDefault();
   const msg = {
+    user_id: socket.id,
     user: document.querySelector('#mail').value,
     msg: document.querySelector('#msg').value,
   }
@@ -29,7 +30,7 @@ const sendMsg = (e) => {
 const renderMessages = (data) => {
   let date = new Date();
   let html = data.map(item => `
-    <p><span class="user">${item.user}</span> <span class="timestamp">[${date.toLocaleString()}]</span>: <span class="user-msg">${item.msg}</span></p> 
+    <p><span class="${userClass(item.user_id)}">${item.user}</span> <span class="timestamp">[${date.toLocaleString()}]</span>: <span class="user-msg">${item.msg}</span></p> 
   `
   );
   const body = document.querySelector('#chat-msgs')
@@ -46,4 +47,11 @@ const renderProducts = (data) => {
   )
   const body = document.querySelector('#table-body')
   body.innerHTML = html.join("");
+}
+
+const userClass = (msgUser) => {
+  if (msgUser === socket.id) {
+    return 'my-user';
+  }
+  return 'user';
 }
