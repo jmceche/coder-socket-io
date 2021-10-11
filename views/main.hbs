@@ -1,0 +1,45 @@
+{{!-- main.hbs --}}
+<main>
+  <section class="product-form">
+  <h1>Ingrese Producto</h1>
+  <form class="product-form" onsubmit="return submitProduct(event)" method="POST">
+    <div class="form-input">
+      <label for="title">Nombre</label>
+      <input type="text" id="title" name="title">
+    </div>
+    <div class="form-input">
+      <label for="price">Precio</label>
+      <input type="number" id="price" name="price">
+    </div>
+    <div class="form-input">
+      <label for="thumbnail">Foto URL</label>
+      <input type="text" id="thumbnail" name="thumbnail">
+    </div>
+    <button type="submit">Enviar</button>
+  </form>
+  </section>
+  <hr>
+  <section class="product-list">
+    <table>
+      <thead>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Foto</th>
+      </thead>
+      <tbody id="table-body">
+      </tbody>
+    </table>
+  </section>
+  <hr>
+  <section class="chat">
+    <h1>Centro de Mensajes</h1>
+      <div id="chat-msgs"></div>
+    <form onsubmit="return sendMsg(event)" class="chat-form">
+      <div class="form-input">
+        <input type="email" name="mail" id="mail" placeholder="email@email.com">
+        <textarea rows="5" cols="20" name="msg" id="msg">Mensaje...</textarea>
+      </div>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+</main>
